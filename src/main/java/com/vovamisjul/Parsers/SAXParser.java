@@ -17,17 +17,17 @@ public class SAXParser extends DefaultHandler {
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        table.getCells().add(new ArrayList<>() { { add("Characters"); add(new String(Arrays.copyOfRange(ch, start, start + length))); } } );
+        table.getCells().add(Arrays.asList("Characters", new String(Arrays.copyOfRange(ch, start, start + length))));
     }
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        table.getCells().add(new ArrayList<>() { { add("Start element"); add(qName); } } );
+        table.getCells().add(Arrays.asList("Start element",qName));
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        table.getCells().add(new ArrayList<>() { { add("End element"); add(qName); } } );
+        table.getCells().add(Arrays.asList("End element",qName));
     }
 
     public ParsedDocumentTable getTable() {

@@ -25,6 +25,11 @@ public class ParserManager {
                     return null;
                 }
             }
+            case "StAX":
+            {
+                var staxParser = new StAXParser(text);
+                return staxParser.parse();
+            }
         }
         return null;
     }
