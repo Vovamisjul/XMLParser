@@ -30,6 +30,11 @@ public class ParserManager {
                 var staxParser = new StAXParser(text);
                 return staxParser.parse();
             }
+            case "DOM":
+            {
+                var domParser = new DOMParser();
+                return domParser.parse(text);
+            }
         }
         return null;
     }
